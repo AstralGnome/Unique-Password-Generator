@@ -12,7 +12,7 @@ var allCharacters = {
 }
 
   //Create the primary function for generating a password.
-  function generatePassword(){
+  function generatePassword() {
 
   //Declare a new list of characters to use.
   var charactersToUse = [];
@@ -21,29 +21,40 @@ var allCharacters = {
   var passwordLength = parseInt(prompt("First, we must define your password length. Choose a number between 8 and 128."));
 
   if (!(passwordLength >= 8 || passwordLength <= 128)) {
-    alert("Your password must be between 8 and 128 characters.")
+    alert("Your password must be between 8 and 128 characters.");
     return;
   }
 
-    //See if the user wants to use use numbers.
-    var usingNumbers = alert("Would like to use lowercase letters?");
+    //See if the user wants to use use numbers and, if so, push that information in the 'charactersToUse' array.
+    var usingNumbers = confirm("Would like to use numbers in your password?");
 
-    if (usingNumbers{}
+    if (usingNumbers === true) {
+      charactersToUse = charactersToUse.concat(allCharacters.numbers);
+    }
 
-    //See if the user wants to use Uppercase.
+    //See if the user wants to use lowercase letters and, if so, push that information in the 'charactersToUse' array.
+    var usingLowers = confirm("Would you like to use lowercase letters in your password?");
 
-    //See if the user wants to use special characters.
+    if (usingLowers === true) {
+      charactersToUse = charactersToUse.concat(allCharacters.lowerCase);
+    }
 
+    //See if the user wants to use Uppercase and, if so, push that information in the 'charactersToUse' array.
+    var usingUppers = confirm("Would you like to use uppercase letters in your password?");
+
+    if (usingUppers === true){
+      charactersToUse = charactersToUse.concat(allCharacters.upperCase);
+    }
+
+    //See if the user wants to use special characters and, if so, push that information in the 'charactersToUse' array.
+    var usingSpecials = confirm("Would you like to use special characters in your password?");
+
+    if (usingSpecials === true) {
+      charactersToUse = charactersToUse.concat(allCharacters.specialChar);
+    }
 
 
   var password = "";
-
-
-
-// Confirm use number usingNumbers // isUsingLowercaseLetters
-//if using numbers push numbers into the characters to use list
-// confirm use UPPERCASE letters
-// confirm use special characters
 
 
 while (!(password.length < passwordLength)) {
