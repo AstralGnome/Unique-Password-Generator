@@ -13,7 +13,7 @@ var allCharacters = {
 
   //Create the primary function for generating a password.
   function generatePassword() {
-
+  var password = "";
   //Declare a new variable array of characters to use. Scope issue?
   var charactersToUse = [];
 
@@ -54,7 +54,7 @@ var allCharacters = {
     }
 
     //If the user fails to decide upon a single character type send them an alert and start over.
-    if (!usingNumbers && !usingLowers && !usingUppers && !usingSpecials) {
+    if (!(usingNumbers && usingLowers && usingUppers && usingSpecials)) {
       alert("You must choose at least one character type for your password.")
       return;
     }
@@ -81,11 +81,11 @@ var allCharacters = {
 
 function writePassword() {
 
-  password = generatePassword();
+  var password = generatePassword();
 
   var passwordText = document.querySelector("#password")
 
-  passwordText.value = password;
+  passwordText.innerHTML = password;
 }
 
 // Add event listener to generate button.
