@@ -1,7 +1,7 @@
 //Generate a button that will generate a password.
 var generateBtn = document.querySelector("#generate");
 
-//List all possible password characters in appropriate arrays and define a database to hold them.
+//List all possible password characters in appropriate arrays and define a database to hold them. Arrays within 'allCharacters' use colons instead of equals signs.
 
 var allCharacters = {
 
@@ -14,7 +14,7 @@ var allCharacters = {
   //Create the primary function for generating a password.
   function generatePassword() {
 
-  //Declare a new list of characters to use.
+  //Declare a new variable array of characters to use. Scope issue?
   var charactersToUse = [];
 
   // Dictate password length
@@ -26,7 +26,7 @@ var allCharacters = {
   }
 
     //See if the user wants to use use numbers and, if so, push that information in the 'charactersToUse' array.
-    var usingNumbers = confirm("Would like to use numbers in your password?");
+    var usingNumbers = confirm("Would you like to use numbers in your password?");
 
     if (usingNumbers === true) {
       charactersToUse = charactersToUse.concat(allCharacters.numbers);
@@ -42,7 +42,7 @@ var allCharacters = {
     //See if the user wants to use Uppercase and, if so, push that information in the 'charactersToUse' array.
     var usingUppers = confirm("Would you like to use uppercase letters in your password?");
 
-    if (usingUppers === true){
+    if (usingUppers === true) {
       charactersToUse = charactersToUse.concat(allCharacters.upperCase);
     }
 
@@ -53,14 +53,27 @@ var allCharacters = {
       charactersToUse = charactersToUse.concat(allCharacters.specialChar);
     }
 
+    //If the user fails to decide upon a single character type send them an alert and start over.
+    if (usingNumbers === false && usingLowers === false && usingUppers === false && usingSpecials === false) {
+      alert("You must choose at least one character type for your password.")
+      return;
+    }
 
-  var password = "";
+    //Let the user know how long their password is going to be and how many of which types of characters it will have.
+    alert("Your password shall be: " + passwordLength + " characters in length and shall be composed of " + usingLowers + 
+    " lowercase letters, " + usingUppers + " uppercase letters, " + usingNumbers + " numerical characters, and " + 
+    usingSpecials + " special characters.");
 
+    // An empty vessel for our loop to add variable to:
+    var password = [];
 
-while (!(password.length < passwordLength)) {
-  //randomly select "randomCharacter" from "charactersToUse"
-  //append "randomCharacter" to "password" string
-}
+    //randomly select "randomCharacter" from "charactersToUse"
+    //append "randomCharacter" to "password" string
+
+    while (!(password.length < passwordLength)) {
+  
+    
+    }
 
 }
 // return password;??????Why did this head off console.log(numbers)?????
