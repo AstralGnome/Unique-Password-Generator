@@ -20,7 +20,7 @@ var allCharacters = {
   // Dictate password length
   var passwordLength = parseInt(prompt("First, we must define your password length. Choose a number between 8 and 128."));
 
-  if (!(passwordLength >= 8 || passwordLength <= 128)) {
+  if (passwordLength <= 8 || passwordLength >= 128) {
     alert("Your password must be between 8 and 128 characters.");
     return;
   }
@@ -28,33 +28,33 @@ var allCharacters = {
     //See if the user wants to use use numbers and, if so, push that information in the 'charactersToUse' array.
     var usingNumbers = confirm("Would you like to use numbers in your password?");
 
-    if (usingNumbers === true) {
+    if (usingNumbers) {
       charactersToUse = charactersToUse.concat(allCharacters.numbers);
     }
 
     //See if the user wants to use lowercase letters and, if so, push that information in the 'charactersToUse' array.
     var usingLowers = confirm("Would you like to use lowercase letters in your password?");
 
-    if (usingLowers === true) {
+    if (usingLowers) {
       charactersToUse = charactersToUse.concat(allCharacters.lowerCase);
     }
 
     //See if the user wants to use Uppercase and, if so, push that information in the 'charactersToUse' array.
     var usingUppers = confirm("Would you like to use uppercase letters in your password?");
 
-    if (usingUppers === true) {
+    if (usingUppers) {
       charactersToUse = charactersToUse.concat(allCharacters.upperCase);
     }
 
     //See if the user wants to use special characters and, if so, push that information in the 'charactersToUse' array.
     var usingSpecials = confirm("Would you like to use special characters in your password?");
 
-    if (usingSpecials === true) {
+    if (usingSpecials) {
       charactersToUse = charactersToUse.concat(allCharacters.specialChar);
     }
 
     //If the user fails to decide upon a single character type send them an alert and start over.
-    if (usingNumbers === false && usingLowers === false && usingUppers === false && usingSpecials === false) {
+    if (!usingNumbers && !usingLowers && !usingUppers && !usingSpecials) {
       alert("You must choose at least one character type for your password.")
       return;
     }
