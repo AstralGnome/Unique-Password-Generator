@@ -65,37 +65,31 @@ var allCharacters = {
     usingSpecials + " special characters.");
 
     // An empty vessel for our loop to add variable to:
-    var password = [];
+    
 
     //randomly select "randomCharacter" from "charactersToUse"
     //append "randomCharacter" to "password" string
 
-    while (!(password.length < passwordLength)) {
-  
-    
+    for (i = 0; i < passwordLength; i++) {
+      var randomCharacter = charactersToUse[Math.floor(Math.random() * charactersToUse.length)];     
+      password += randomCharacter;
     }
 
+    return password;
+
 }
-// return password;??????Why did this head off console.log(numbers)?????
 
-// Assignment Code
+function writePassword() {
 
+  password = generatePassword();
 
-// Write password to the #password input
-  function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password")
 
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
+// Add event listener to generate button.
 generateBtn.addEventListener("click", writePassword);
 
-// <!--### Instructions
-
-// * Write JavaScript code that does the following:
-// * Using a confirm, ask the user, "Do you like \_?" Store their response in a variable.
-// * Using a prompt, ask the user, "What kind of \_ do you like?" Store their response in a variable.
-// * Alert both variables to the screen.-->
+//I would like to know how to reset the form with every click of the button.btn
+//I would also like to know how to get an even spread of character types.
